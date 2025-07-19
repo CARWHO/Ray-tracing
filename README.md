@@ -17,8 +17,8 @@ A minimal path‑tracer that demonstrates:
 
 ```bash
 # Clone the repo
-git clone https://github.com/YourUsername/your‑raytracer.git
-cd your‑raytracer
+git clone https://github.com/carwho/Ray-tracing.git
+cd Ray-tracing
 
 # Build
 g++ -std=c++17 main.cc -o raytracer
