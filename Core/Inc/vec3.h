@@ -1,7 +1,7 @@
 #ifndef VEC3_H
 #define VEC3_H
 
-
+#include <cmath>
 
 class vec3 {
   public:
@@ -50,7 +50,7 @@ class vec3 {
     }
 
     static vec3 random(double min, double max) {
-        return vec3(random_double(min,max), random_double(min,max), random_double());
+        return vec3(random_double(min,max), random_double(min,max), random_double(min,max));
     }
 };
 
@@ -76,11 +76,12 @@ inline vec3 operator*(double t, const vec3& v) {
     return vec3(v.e[0] * t, v.e[1] * t, v.e[2] * t);
 }
 
+inline vec3 operator*(const vec3& v, double t) {
+    return vec3(t * v);
+}
+
 inline vec3 operator/(const vec3& v, double t) {
-    return vec3(
-    v.e[0] / t,
-    v.e[1] / t,
-    v.e[2] / t);
+    return (1/t) * v;
 }
 
 inline double dot(const vec3& u, const vec3& v) {
@@ -90,7 +91,7 @@ inline double dot(const vec3& u, const vec3& v) {
 }
  
 inline vec3 cross(const vec3& u, const vec3& v) {
-    return vec3( u.e[1] * u.e[2] - u.e[2] * v.e[1],
+    return vec3( u.e[1] * v.e[2] - u.e[2] * v.e[1],
                 u.e[2] * v.e[0] - u.e[0] * v.e[2],
                 u.e[0] * v.e[1] - u.e[1] * v.e[0]);
 }
@@ -99,14 +100,17 @@ inline vec3 unit_vector(const vec3& v) {
     return v / v.length();
 }
 
-inline vec3 random_unit_vector() {
+inline vec3 random_in_unit_disc() {
     while (true) {
-        auto p = vec3::random(-1,1);
-        auto lensq = p.length_squared();
-        if (1e-160 < lensq <= 1) {
-            return p / sqrt(lensq);
+        auto p = vec3(random_double(-1,1), random_double(-1,1), 0);
+        if (p.length_squared() < 1) {
+            return p;
         }
     }
+}
+
+inline vec3 random_unit_vector() {
+    return unit_vector(vec3::random(-1,1));
 }
 
 inline vec3 random_on_hemisphere(const vec3& normal) {

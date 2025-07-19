@@ -22,21 +22,21 @@ class sphere : public hittable {
                 return false;
             }
 
-            auto sqrtd = (std::sqrt(disc));
-            auto root = (h-sqrtd) / a;
-            if (!ray_t.surrounds(root)) {
+            auto sqrtd = std::sqrt(disc);
+
+            // Find the nearest root that lies in the acceptable range.
+            auto root = (h - sqrtd) / a;
+            if (root <= ray_t.min || ray_t.max <= root) {
                 root = (h + sqrtd) / a;
-                if (!ray_t.surrounds(root)) {
-                    root = (h + sqrtd) / a;
-                }
-                return false;
+                if (root <= ray_t.min || ray_t.max <= root)
+                    return false;
             }
-            rec.mat = mat;
+
             rec.t = root;
             rec.p = r.at(rec.t);
-
             vec3 outward_normal = (rec.p - center) / radius;
-            rec.set_face_normal(r,outward_normal);
+            rec.set_face_normal(r, outward_normal);
+            rec.mat = mat;
 
             return true;
         }
