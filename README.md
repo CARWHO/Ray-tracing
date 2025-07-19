@@ -27,7 +27,7 @@ The organization of this repository is meant to be simple and self-evident at a 
 
 ### Programming Language
 
-This project is written in C++ and uses some modern C++11 features. The language and features were chosen for broad accessibility rather than peak performance or optimization.
+This project is written in C++. The language and features were chosen for broad accessibility rather than peak performance or optimization.
 
 ---
 
