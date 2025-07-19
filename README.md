@@ -1,15 +1,33 @@
 # Ray Tracer
 
-A minimal path‑tracer that demonstrates:
+A minimal path-tracer that demonstrates:
 - Indirect lighting  
-- Anti‑aliasing  
+- Anti-aliasing  
 - Multiple material types (diffuse, metal, dielectric)  
-- Depth‑of‑field and camera focus  
+- Depth-of-field and camera focus  
 
 ![Sample Render](./rt.png)
 
 **Inspired by** the *Ray Tracing* book series by Peter Shirley, Trevor David Black, and Steve Hollasch:  
 <https://github.com/RayTracing/raytracing.github.io/>
+
+---
+
+## Directory Structure
+
+The organization of this repository is meant to be simple and self-evident at a glance:
+
+- `Core/` — contains all source code  
+  - `Core/Inc/` — final source for each book in the series
+  - `Core/Src/` — final source for each book in the series  
+
+---
+
+## Source Code
+
+### Programming Language
+
+This project is written in C++ and uses some modern C++11 features. The language and features were chosen for broad accessibility rather than peak performance or optimization.
 
 ---
 
