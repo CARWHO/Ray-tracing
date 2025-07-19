@@ -27,4 +27,4 @@ g++ -std=c++17 main.cc -o raytracer
 ./raytracer > output.ppm
 
 # View (requires Python + matplotlib)
-python3 ppm_viewer.py output.ppm
+python3 ppm_viewer.py
