@@ -1,6 +1,6 @@
 # Ray Tracer
 
-This ray-tracer, is a basic path tracing program that implements indirect lighting, anti-aliasing, different materials (dielectrics, metals, lambertians), camera focus, and a positional camera to create basic, but impressive images.
+This ray-tracer, is a basic path tracing program that implements indirect lighting, anti-aliasing, different materials (dielectrics, metals, lambertians), adjustable camera focus, and a positional camera to create basic, but impressive images.
 
 ![Sample Render](./rt.png)
 
