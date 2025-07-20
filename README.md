@@ -13,9 +13,9 @@ This ray-tracer, is a basic path tracing program that implements indirect lighti
 
 The organization of this repository is meant to be simple and self-evident at a glance:
 
-- `Core/` — contains all source code  
-  - `Core/Inc/` — final source for each book in the series
-  - `Core/Src/` — final source for each book in the series  
+- `Core/` - contains all source code  
+  - `Core/Inc/` - final source for each book in the series
+  - `Core/Src/` - final source for each book in the series  
 
 ---
 
