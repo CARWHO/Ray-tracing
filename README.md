@@ -1,44 +1,22 @@
+![Render](./rt.png)
+
 # Ray Tracer
 
-This ray-tracer, is a basic path tracing program that implements indirect lighting, anti-aliasing, different materials (dielectrics, metals, lambertians), adjustable camera (position and focus) to create basic, but impressive images.
+Path tracer in C++ following Peter Shirley's "Ray Tracing in One Weekend" series.
 
-![Sample Render](./rt.png)
+## Features
 
-**Inspired by** the *Ray Tracing* book series by Peter Shirley, Trevor David Black, and Steve Hollasch:  
-<https://github.com/RayTracing/raytracing.github.io/>
+- Indirect lighting (objects illuminate each other)
+- Anti-aliasing via random sampling
+- Materials: lambertian diffuse, metals, glass/dielectrics
+- Adjustable camera position and focus depth
 
----
+## The Math
 
-## Directory Structure
+Each pixel fires multiple rays with slight random offsets for anti-aliasing. Rays bounce around the scene accumulating color until they hit a light source or max out on bounces.
 
-The organization of this repository is meant to be simple and self-evident at a glance:
+Dielectrics (glass) were the trickiest - had to implement Schlick's approximation for reflectance at grazing angles, otherwise glass looked wrong at the edges.
 
-- `Core/` - contains all source code  
-  - `Core/Inc/` - final source for each book in the series
-  - `Core/Src/` - final source for each book in the series  
+Renders to PPM format. The image above took about 2 minutes at 1200x800 with 500 samples per pixel.
 
----
-
-## Source Code
-
-### Programming Language
-
-This project is written in C++. The language and features were chosen for broad accessibility rather than peak performance or optimization.
-
----
-
-## Quickstart
-
-```bash
-# Clone the repo
-git clone https://github.com/carwho/Ray-tracing.git
-cd Ray-tracing
-
-# Build
-g++ -std=c++17 main.cc -o raytracer
-
-# Render
-./raytracer > output.ppm
-
-# View (requires Python + matplotlib)
-python3 ppm_viewer.py
+Based on: https://github.com/RayTracing/raytracing.github.io/
