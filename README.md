@@ -4,14 +4,12 @@
 
 Path tracer in C++ following Peter Shirley's "Ray Tracing in One Weekend" series.
 
-## Features
-
 - Indirect lighting (objects illuminate each other)
 - Anti-aliasing via random sampling
 - Materials: lambertian diffuse, metals, glass/dielectrics
 - Adjustable camera position and focus depth
 
-## The Math
+## Math
 
 Each pixel fires multiple rays with slight random offsets for anti-aliasing. Rays bounce around the scene accumulating color until they hit a light source or max out on bounces.
 
